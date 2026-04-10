@@ -1,16 +1,16 @@
 
-
+import java.util.ArrayList;
 public class Biblioteca
 {
     private Nodo cabeza;
     private Nodo espera;
-    private Usuario usuario;
+    private ArrayList<Usuario> usuarios;
     
     public Biblioteca()
     {
        this.cabeza=null;
        this.espera= null;
-       this.usuario= null;
+       this.usuarios= new ArrayList<>();
     }
 
    
@@ -19,16 +19,18 @@ public class Biblioteca
         return this.cabeza;
     }
     
-    public void prestarLibro(String nombre){
+    public void prestarLibro(String nombre, String nombreU){
         Nodo actual= cabeza;
-        while(actual.getLibro().getTitulo()!= nombre){
+        Usuario uActual = this.buscarUsuario(nombreU);
+        
+        while(actual!=null && ! actual.getLibro().getTitulo().equalsIgnoreCase(nombre)){
             actual= actual.getNext();
         }
         
         if (actual.getLibro().getEstado()==true){
             
-            if(usuario.getLibros().size()<3){
-                usuario.agregarLibro(actual.getLibro());
+            if(uActual.getLibros().size()<3){
+                uActual.agregarLibro(actual.getLibro());
                 actual.getLibro().setEstado(false);
             }
             
@@ -46,13 +48,15 @@ public class Biblioteca
         
     }
     
-    public void devolverLibro(Libro libroD){
+    public void devolverLibro(String nombre, String nombreU){
         Nodo actual= cabeza;
-        while(actual.getLibro()!= libroD){
+        Usuario uActual = this.buscarUsuario(nombreU);
+        while(actual.getLibro().getTitulo()!= nombre){
             actual= actual.getNext();
         }
         
         actual.getLibro().setEstado(true);
+        uActual.getLibros().remove(actual);
         //ver lista de espera y asignar
     }
     
@@ -87,7 +91,7 @@ public class Biblioteca
     
     public void listarLibrosD(){
         Nodo actual= cabeza;
-        while(actual.getNext()!=null){
+        while(actual!=null){
             actual.getLibro().imprimirDetalles();
             actual= actual.getNext();
             
@@ -99,10 +103,27 @@ public class Biblioteca
     
     public void listarLibrosE(){
         Nodo actual= espera;
-        while(actual.getNext()!=null){
+        while(actual!=null){
             actual.getLibro().imprimirDetalles();
             actual= actual.getNext();
             
         }
+    }
+    
+    private Usuario buscarUsuario(String nombre){
+        Usuario buscado= null;
+        for (int i= 0; i<usuarios.size(); i++){
+            Usuario actual= usuarios.get(i);
+            
+            if (actual.getNombre().equals(nombre)){
+                buscado= actual;
+            }
+        }
+        
+        return buscado;
+    }
+    
+    public void agregarUsuario(Usuario usuario){
+        usuarios.add(usuario);
     }
 }

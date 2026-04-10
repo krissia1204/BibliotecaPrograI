@@ -7,7 +7,7 @@ public class Usuario
     public Usuario(String elNombre)
     {
       this.nombre= elNombre;
-      this.libros= null;
+      this.libros= new ArrayList<>();
       
     }
 

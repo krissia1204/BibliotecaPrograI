@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Biblioteca
+comment1.params=
+comment1.target=Biblioteca()
+comment2.params=
+comment2.target=Nodo\ getCabeza()
+comment3.params=libroB
+comment3.target=void\ prestarLibro(Libro)
+comment4.params=libroD
+comment4.target=void\ devolverLibro(Libro)
+comment5.params=libro
+comment5.target=void\ agregarLibro(Libro)
+comment6.params=libro
+comment6.target=void\ agregarLibroLE(Libro)
+comment7.params=
+comment7.target=void\ listarLibrosD()
+numComments=8

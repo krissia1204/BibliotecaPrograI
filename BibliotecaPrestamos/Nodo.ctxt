@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Nodo
+comment1.params=elLibro
+comment1.target=Nodo(Libro)
+comment2.params=
+comment2.target=Libro\ getLibro()
+comment3.params=
+comment3.target=Nodo\ getNext()
+comment4.params=siguiente
+comment4.target=void\ setNext(Nodo)
+numComments=5

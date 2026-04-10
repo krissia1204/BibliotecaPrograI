@@ -30,5 +30,9 @@ public class Libro
         this.estado= nuevoE;
     }
     
+    public void imprimirDetalles(){
+        System.out.println("Autor: "+autor+"\n Titulo: "+titulo);
+    }
+    
     
 }

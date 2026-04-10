@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Libro
+comment1.params=elTitulo\ elAutor
+comment1.target=Libro(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getTitulo()
+comment3.params=
+comment3.target=boolean\ getEstado()
+comment4.params=nuevoE
+comment4.target=void\ setEstado(boolean)
+comment5.params=
+comment5.target=void\ imprimirDetalles()
+numComments=6

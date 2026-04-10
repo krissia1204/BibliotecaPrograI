@@ -19,16 +19,16 @@ public class Biblioteca
         return this.cabeza;
     }
     
-    public void prestarLibro(Libro libroB){
+    public void prestarLibro(String nombre){
         Nodo actual= cabeza;
-        while(actual.getLibro()!= libroB){
+        while(actual.getLibro().getTitulo()!= nombre){
             actual= actual.getNext();
         }
         
         if (actual.getLibro().getEstado()==true){
             
             if(usuario.getLibros().size()<3){
-                usuario.agregarLibro(libroB);
+                usuario.agregarLibro(actual.getLibro());
                 actual.getLibro().setEstado(false);
             }
             
@@ -40,7 +40,7 @@ public class Biblioteca
         else{
             
              System.out.println("Libro ocupado, será agregado a la lista de espera");
-             agregarLibroLE(libroB);
+             agregarLibroLE(actual.getLibro());
              //llamado interno, llama a metodo dentro de su propia clase
         }
         
@@ -93,5 +93,16 @@ public class Biblioteca
             
         }
         
+        
+        
     }
+    
+    public void listarLibrosE(){
+        Nodo actual= espera;
+        while(actual.getNext()!=null){
+            actual.getLibro().imprimirDetalles();
+            actual= actual.getNext();
+            
+        }
     }
+}

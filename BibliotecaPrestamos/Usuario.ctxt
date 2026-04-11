@@ -8,4 +8,6 @@ comment3.params=
 comment3.target=java.util.ArrayList\ getLibros()
 comment4.params=libroB
 comment4.target=void\ agregarLibro(Libro)
-numComments=5
+comment5.params=
+comment5.target=void\ imprimirLibros()
+numComments=6

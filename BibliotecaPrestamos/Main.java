@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 public class Main
 {
@@ -33,7 +32,7 @@ public class Main
         
         do{
 
-        System.out.println("¿Qué acción desea realizar \n 1.Prestar un libro. \n 2.Devolver un libro \n 3.Consultar lista de espera");
+        System.out.println("¿Qué acción desea realizar \n 1.Prestar un libro. \n 2.Devolver un libro \n 3.Consultar lista de espera \n 4.Ver mi lista de libros prestados \n 5. Cerrar \n");
         opcionB = sc.nextInt();
         switch(opcionB){
             case 1:
@@ -56,12 +55,16 @@ public class Main
                 biblioteca.listarLibrosE();
                 break;
             case 4:
+                System.out.println("Por favor digite su nombre");
+                String nombreULista= sc.next();
+                biblioteca.listarLibrosU(nombreULista);        
+                break;
+            case 5:
                 System.out.println("Gracias por su visita");
-            default:
-                System.out.println("Opcion incorrecta, intente de nuevo");
+            
             
         }
        
-   } while (opcionB!=4);
+   } while (opcionB!=5);
 }
 }

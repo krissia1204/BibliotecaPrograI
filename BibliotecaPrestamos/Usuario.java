@@ -24,4 +24,11 @@ public class Usuario
         
         libros.add(libroB);
     }
+    
+    public void imprimirLibros(){
+        
+        for (int i=0;i<libros.size();i++){
+            libros.get(i).imprimirDetalles();
+        }
+    }
 }

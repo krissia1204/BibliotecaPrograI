@@ -15,7 +15,7 @@ public class Usuario
         return this.nombre;
     }
     
-    public ArrayList getLibros()
+    public ArrayList<Libro> getLibros()
     {
         return this.libros;
     }

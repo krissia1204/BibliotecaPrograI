@@ -22,49 +22,53 @@ public class Main
        
        System.out.println("Bienvenido/a.");
        
-        //int opcion= sc.nextInt();
-        
-       // if (opcion==1){
-            //System.out.println("Digite su nombre para crear su usuario");
-            //String nombre= sc.next();
-           // Usuario nuevo= new Usuario(nombre);
-        // era para agregar otro usuario, pero x
         
         do{
 
-        System.out.println("¿Qué acción desea realizar \n 1.Prestar un libro. \n 2.Devolver un libro \n 3.Consultar lista de espera \n 4.Ver mi lista de libros prestados \n 5. Cerrar \n");
+        System.out.println("¿Qué acción desea realizar \n 1. Crear Usuario \n 2. Prestar un libro. \n 3.Devolver un libro \n 4.Consultar lista de espera \n 5.Ver mi lista de libros prestados \n 6.Ver ranking de libros más solicitados \n 7. Cerrar \n");
         opcionB = sc.nextInt();
         switch(opcionB){
             case 1:
+                System.out.println("Por favor digite su nombre");
+                String nombreU= sc.next();
+                Usuario nuevoUsuario= new Usuario(nombreU);
+                biblioteca.agregarUsuario(nuevoUsuario);
+                System.out.println("Usuario creado exitosamente");
+                break;
+            case 2:
                 System.out.println("Se mostrará la lista de libros disponibles en la biblioteca");
                 biblioteca.listarLibrosD();
                 System.out.println("Por favor digite el nombre del libro que desea llevar");
                 String nombreL= sc.next();
                 System.out.println("Por favor digite su nombre");
-                String nombreU= sc.next();
-                biblioteca.prestarLibro(nombreL, nombreU);
+                String nombreU1= sc.next();
+                biblioteca.prestarLibro(nombreL, nombreU1);
                 break;
-            case 2:
+            case 3:
                 System.out.println("Por favor digite el nombre del libro que desea devolver");
                 String nombreD= sc.next();
                 System.out.println("Por favor digite su nombre");
                 String nombreUD= sc.next();
                 biblioteca.devolverLibro(nombreD, nombreUD);
                 break;
-            case 3:
+            case 4:
                 biblioteca.listarLibrosE();
                 break;
-            case 4:
+            case 5:
                 System.out.println("Por favor digite su nombre");
                 String nombreULista= sc.next();
-                biblioteca.listarLibrosU(nombreULista);        
+                biblioteca.listarLibrosU(nombreULista);     
                 break;
-            case 5:
+            case 6:
+                biblioteca.listarRankingLibros();
+                break;
+            case 7:
                 System.out.println("Gracias por su visita");
             
             
         }
        
-   } while (opcionB!=5);
+   } while (opcionB!=7);
+   sc.close();
 }
 }
